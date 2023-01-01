@@ -1,0 +1,54 @@
+body{
+    background-image:url('back.jfif');
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-image:url('back.jfif'); 
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+#div1{
+    top:0%;
+    position: sticky;
+    z-index:1000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5)"
+}
+#nav1{
+    
+        background-color: rgba(0, 0, 0, 0.356);
+        color: white;
+        top:0;
+        position: sticky;
+        z-index:1000;
+        box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.5);
+    }
+
+#div2{
+    margin:20px;
+    margin-top:0;
+    margin-left:0;
+    padding:20px;
+    border-color: transparent;
+    padding-bottom: 200px;
+    color:white;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.256);
+    color: white;
+    top:0;
+    position: sticky;
+    z-index:1000;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+#container{
+    justify-content: space-evenly;
+    margin-left:80px;
+    padding:10px;
+    padding-top:30px"
+}
+
+#all:active{
+    background-color: white;
+    color:black;
+}
