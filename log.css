@@ -16,3 +16,23 @@
     background: hsla(159, 21%, 21%, 0.272);
     backdrop-filter: blur(50px);
   }
+
+  .codecontainer{
+    align-content: center;
+    size:80%;
+    margin-top:50px;
+    background-color: rgba(255, 255, 255, 0.63);
+    backdrop-filter:blur(30px);
+    padding: 6rem 6rem;
+    box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.566);
+    border-radius: 7px;
+}
+
+#code,.cont {
+  background-image: url('back.jfif');
+  box-shadow:8px 8px 8px 9px rgba(0, 0, 0, 0.5) inset, 8px 8px 8px 9px rgba(0, 0, 0, 0.5); 
+ 
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+}

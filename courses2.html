@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="courses2.css" rel="stylesheet" >
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    
 
 </head>
 <body class="bg-light" >
@@ -24,25 +25,248 @@
 <section class="position-absolute start-5">
     <div id="div2"  >
       
-          <form class= "form" name="search">
+          <form class= "form" name="search" onsubmit="return false">
             <input type="search" id="search" name="search" class="form-control me-2" placeholder="Search" aria-label="Search" aria-describedby="search-addon" oninput="search_by_keyword()"/>
-            <button onmouseover="show_script(search_by_keyword)" onmouseleave="all()"><span class=icon style="background-image:url('icon.png')"></span></button><br>
-            <label for="category" class="form-label">Categories:</label><br>
-            <input type="button" class="btn btn-outline-light" id="all" name="all" value="All" onclick="category(this.id)" onmosueover="script()" ></br>
+            <button class="btn btn-outline-light" onclick="show_script('keyword')" ><i class="bi-filetype-js"></i></button><br>
+            <label for="category" class="form-label">Categories:</label>  <button class="btn btn-outline-light" onclick="show_script('category')" ><i class="bi-filetype-js"></i></button><br>
+            <br>
+            <input type="button" class="btn btn-outline-light" id="all" name="all" value="All" onclick="category(this.id)" ></br>
             <input type="button" class="btn btn-outline-light" id="js" name="js" value="JS" onclick="category(this.id)"></br>
             <input type="button" class="btn btn-outline-light" id="html" name="html" value="HTML" onclick="category(this.id)"><br>
             <input type="button" class="btn btn-outline-light" id="css" name="css" value="CSS" onclick="category(this.id)"><br>
             <input type="button" class="btn btn-outline-light" id="php" name="php" value="PHP" onclick="category(this.id)"><br><br>
             <label for="price" class="form-label">Max-Price : </label> <span id="prix" style="border:none; color:white"></span></br>
-            <input type="range" id="price" name="price" class="form-range" min="0" max="10" step="0.5" onchange="prix()">
+            <input type="range" id="price" name="price" class="form-range" min="0" max="10" step="0.5" onchange="prix()"><button class="btn btn-outline-light" onclick="show_script('price')" ><i class="bi-filetype-js"></i></button>
            
          </form>
         
     </div> 
 </section></div>
+
+
 <div class="container">
   <div class="row">
     <div id="container" class="col-md-14"  ></div>
-<script src="jscourses.js"></script>
+
+  </div></div>
+
+ <section id="code">
+    <div id="all" style="display:none">
+      <pre
+        <h2>Javascript:</h2>
+        function all(){
+          document.getElementById("container").innerHTML="";
+          document.getElementById("container1").innerHTML="";
+      
+          let cp=0;
+              for(let x1=0; x1\<\courses.length; x1++){
+                  let el= courses[x1];
+                  append_el(el);
+                  cp++;}
+              if(cp==0){
+                  aucun_resultat(); 
+              }}
+              <h6>Where:</h6>
+              function append_el(el){
+                let fig=document.createElement("div");
+                let img = document.createElement("img");
+                img.setAttribute("src", el.path);
+                img.setAttribute("width", "100%");
+                img.setAttribute("height", "150px");
+                img.setAttribute("style", "border-top-left-radius:10px; border-top-right-radius:10px");
+                fig.appendChild(img);
+                var titre = document.createElement("figcaption");
+                var t = document.createTextNode("\n" + el.title);
+                titre.appendChild(t);
+                fig.appendChild(titre);
+                var prix = document.createElement("figcaption");
+                var p = document.createTextNode(el.price + "£");
+                prix.appendChild(p);
+                fig.appendChild(prix);
+                fig.setAttribute("style", "float:right; width:27%; margin:10px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-size:14px; border-radius:10px; backdrop-filter:blur(10px)");
+                document.getElementById("container").appendChild(fig);
+            }
+            
+            function aucun_resultat(){
+                let fig=document.createElement("div");
+                var message = document.createElement("figcaption");
+                var t = document.createTextNode("Aucun résultat trouvé");
+                message.appendChild(t);
+                fig.appendChild(message);
+                fig.setAttribute("style", "float:right ; width:80%; margin-top:50px; text-align:center; color:white;  background-color: black; backdrop-filter:blur(20px)");
+                document.getElementById("container").appendChild(fig);
+            }</pre>
+       </code>
+    </div>
+    <div id="keyword" style="display:none" >
+      <pre>
+        <h2>HTML: </h2>
+        <\input type="search" id="search" name="search" class="form-control me-2" placeholder="Search" aria-label="Search" aria-describedby="search-addon" oninput="search_by_keyword()"/>
+        <h2>Javascript:</h2>
+        function search_by_keyword(){
+          let nom=document.getElementById("search").value.toLowerCase();
+          document.getElementById("container").innerHTML="";
+          let cp=0;
+          for(let i=0; i\<\courses.length; i++){
+              let pattern="/"+courses[i].title.toLowerCase()+"/";   
+              if(pattern.match(nom)!=null){
+                  let el= courses[i];
+                  append_el(el);
+                  cp++;}}
+              if(cp==0){
+                  aucun_resultat(); 
+              }
+              }
+              <h6>Where:</h6>
+              function append_el(el){
+                let fig=document.createElement("div");
+                let img = document.createElement("img");
+                img.setAttribute("src", el.path);
+                img.setAttribute("width", "100%");
+                img.setAttribute("height", "150px");
+                img.setAttribute("style", "border-top-left-radius:10px; border-top-right-radius:10px");
+                fig.appendChild(img);
+                var titre = document.createElement("figcaption");
+                var t = document.createTextNode("\n" + el.title);
+                titre.appendChild(t);
+                fig.appendChild(titre);
+                var prix = document.createElement("figcaption");
+                var p = document.createTextNode(el.price + "£");
+                prix.appendChild(p);
+                fig.appendChild(prix);
+                fig.setAttribute("style", "float:right; width:27%; margin:10px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-size:14px; border-radius:10px; backdrop-filter:blur(10px)");
+                document.getElementById("container").appendChild(fig);
+            }
+            
+            function aucun_resultat(){
+                let fig=document.createElement("div");
+                var message = document.createElement("figcaption");
+                var t = document.createTextNode("Aucun résultat trouvé");
+                message.appendChild(t);
+                fig.appendChild(message);
+                fig.setAttribute("style", "float:right ; width:80%; margin-top:50px; text-align:center; color:white;  background-color: black; backdrop-filter:blur(20px)");
+                document.getElementById("container").appendChild(fig);
+            }
+            </pre>  
+       </div>
+    </div>
+  <div id="price" style="display:none">
+      <pre>
+        <h2>HTML:</h2>
+        <\label for="price" class="form-label">Max-Price : <\/label> <\span id="prix" style="border:none; color:white"><\/span><\/br>
+            <\input type="range" id="price" name="price" class="form-range" min="0" max="10" step="0.5" onchange="prix()">
+           
+        <h2>Javascript:</h2>
+        function prix(){
+          let prix1=document.getElementById("price").value;
+          document.getElementById("prix").innerHTML=prix1+"£";
+          document.getElementById("container").innerHTML="";
+          let cp=0;
+          for(let i=0; i<\courses.length; i++){
+              if(prix1>=courses[i].price){
+                  let el= courses[i];
+                  append_el(el);
+                  cp++;}}
+              if(cp==0){
+                  aucun_resultat();
+              }} 
+              <h6>Where:</h6>
+              function append_el(el){
+                let fig=document.createElement("div");
+                let img = document.createElement("img");
+                img.setAttribute("src", el.path);
+                img.setAttribute("width", "100%");
+                img.setAttribute("height", "150px");
+                img.setAttribute("style", "border-top-left-radius:10px; border-top-right-radius:10px");
+                fig.appendChild(img);
+                var titre = document.createElement("figcaption");
+                var t = document.createTextNode("\n" + el.title);
+                titre.appendChild(t);
+                fig.appendChild(titre);
+                var prix = document.createElement("figcaption");
+                var p = document.createTextNode(el.price + "£");
+                prix.appendChild(p);
+                fig.appendChild(prix);
+                fig.setAttribute("style", "float:right; width:27%; margin:10px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-size:14px; border-radius:10px; backdrop-filter:blur(10px)");
+                document.getElementById("container").appendChild(fig);
+            }
+            
+            function aucun_resultat(){
+                let fig=document.createElement("div");
+                var message = document.createElement("figcaption");
+                var t = document.createTextNode("Aucun résultat trouvé");
+                message.appendChild(t);
+                fig.appendChild(message);
+                fig.setAttribute("style", "float:right ; width:80%; margin-top:50px; text-align:center; color:white;  background-color: black; backdrop-filter:blur(20px)");
+                document.getElementById("container").appendChild(fig);
+            }
+            </pre> 
+       
+    </div>
+    <div id="category" style="display:none" >
+      <pre>
+        <h2>HTML: </h2>
+        <\form class= "form" name="search" onsubmit="return false">
+          <\label for="category" class="form-label">Categories:<\/label><\br>
+          <\input type="button" class="btn btn-outline-light" id="all" name="all" value="All" onclick="category(this.id)" ><\/br>
+          <\input type="button" class="btn btn-outline-light" id="js" name="js" value="JS" onclick="category(this.id)"><\/br>
+          <\input type="button" class="btn btn-outline-light" id="html" name="html" value="HTML" onclick="category(this.id)"><\br>
+          <\input type="button" class="btn btn-outline-light" id="css" name="css" value="CSS" onclick="category(this.id)"><\br>
+          <\input type="button" class="btn btn-outline-light" id="php" name="php" value="PHP" onclick="category(this.id)">
+         
+        <h2>Javascript: </h2>
+        function category(btn){
+          if(btn.toLowerCase()=="all"){
+              all();
+          }
+          else{
+              let cp=0;
+              document.getElementById("container").innerHTML="";
+              for(let i=0; i<\courses.length; i++){
+                  if(btn.toLowerCase()==courses[i].category.toLowerCase()){
+                      let el= courses[i];
+                      append_el(el);
+                      cp++;}}
+                  if(cp==0){
+                      aucun_resultat();  
+                  }
+              }
+          }
+          <h6>Where:</h6>
+          function append_el(el){
+            let fig=document.createElement("div");
+            let img = document.createElement("img");
+            img.setAttribute("src", el.path);
+            img.setAttribute("width", "100%");
+            img.setAttribute("height", "150px");
+            img.setAttribute("style", "border-top-left-radius:10px; border-top-right-radius:10px");
+            fig.appendChild(img);
+            var titre = document.createElement("figcaption");
+            var t = document.createTextNode("\n" + el.title);
+            titre.appendChild(t);
+            fig.appendChild(titre);
+            var prix = document.createElement("figcaption");
+            var p = document.createTextNode(el.price + "£");
+            prix.appendChild(p);
+            fig.appendChild(prix);
+            fig.setAttribute("style", "float:right; width:27%; margin:10px; text-align:center; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);font-size:14px; border-radius:10px; backdrop-filter:blur(10px)");
+            document.getElementById("container").appendChild(fig);
+        }
+        
+        function aucun_resultat(){
+            let fig=document.createElement("div");
+            var message = document.createElement("figcaption");
+            var t = document.createTextNode("Aucun résultat trouvé");
+            message.appendChild(t);
+            fig.appendChild(message);
+            fig.setAttribute("style", "float:right ; width:80%; margin-top:50px; text-align:center; color:white;  background-color: black; backdrop-filter:blur(20px)");
+            document.getElementById("container").appendChild(fig);
+        }
+        </pre>
+       
+    </div></section>
+<script src="jscourses.js">
+ 
+</script>
 </body>
 </html>

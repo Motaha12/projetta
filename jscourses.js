@@ -120,12 +120,7 @@ var courses = [{
     category: 'PHP'
 }]
 
-function show_script(func){
-    document.getElementById("container").innerHTML="";
-    document.getElementById("container").innerHTML=func;
-    document.getElementById("container").setAttribute("style","float:right ; width:80%; margin-top:50px; text-align:right; color:white;  backdrop-filter:blur(20px)");
 
-}
 function append_el(el){
     let fig=document.createElement("div");
     let img = document.createElement("img");
@@ -155,10 +150,26 @@ function aucun_resultat(){
     fig.setAttribute("style", "float:right ; width:80%; margin-top:50px; text-align:center; color:white;  background-color: black; backdrop-filter:blur(20px)");
     document.getElementById("container").appendChild(fig);
 }
+let cp_btn=0;
+function show_script(id){
+    if(cp_btn%2==0){
+        document.getElementById("container").innerHTML="";
+        document.getElementById(id).setAttribute("style", "display:block");
+        cp_btn++;
+    }
+    else{
+        document.getElementById(id).setAttribute("style", "display:none");
+        all();
+        cp_btn++;
+    }
+   
 
-
+  }
+ 
 function all(){
     document.getElementById("container").innerHTML="";
+    
+
     let cp=0;
         for(let x1=0; x1<courses.length; x1++){
             let el= courses[x1];

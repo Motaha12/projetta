@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link href="log.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
     <title>Login</title>
     
 </head>
@@ -19,18 +21,18 @@
           <div class="col-lg-6 mb-19 mb-lg-8">
             <div id="div4" class="card cascading-right">
               <div class="card-body p-5 shadow-5 text-center">
-                <h2 class="fw-bold mb-5">Sign Up</h2>
-
+                
+    <h2 class="fw-bold mb-5">Sign Up</h2><button class="btn btn-outline-light" onclick="show_script('css')" ><i class="bi-filetype-css"></i></button><br><br><br>
     <form name="loggin" onsubmit="return false">
-            <label for="username" class="form-label">Username:</label><br>
+            <label for="username" class="form-label">Username:</label><button class="btn btn-outline-light" onclick="show_script('usernamejs')" ><i class="bi-filetype-js"></i></button><button class="btn btn-outline-light" onclick="show_script('usernamehtml')" ><i class="bi-filetype-html"></i></button><br>
             <input type="text" id="username" name="username" placeholder="Choose a username" class="form-control"><br>
-            <label for="email" class="form-label">Email:</label><br>
+            <label for="email" class="form-label">Email:</label><button class="btn btn-outline-light" onclick="show_script('emailjs')" ><i class="bi-filetype-js"></i></button><button class="btn btn-outline-light" onclick="show_script('emailhtml')" ><i class="bi-filetype-html"></i></button><br>
             <input type="text" id="email" name="email" placeholder="enter your email" class="form-control"><br>
-            <label for="password" class="form-label">Password:<br>       
+            <label for="password" class="form-label">Password:<button class="btn btn-outline-light" onclick="show_script('passwordjs')" ><i class="bi-filetype-js"></i></button><button class="btn btn-outline-light" onclick="show_script('passwordhtml')" ><i class="bi-filetype-html"></i></button><br>       
             <input type="type" id="password" name="password" placeholder="Enter a strong Password" class="form-control"><br>
-            <label for="password2" class="form-label">Confirm Password:</label><br>
+            <label for="password2" class="form-label">Confirm Password:</label><button class="btn btn-outline-light" onclick="show_script('password2js')" ><i class="bi-filetype-js"></i></button><button class="btn btn-outline-light" onclick="show_script('password2html')" ><i class="bi-filetype-html"></i></button><br>
             <input type="password" id="password2" name="password2" placeholder="Reenter your password" class="form-control"><br>
-            <button id="signup"  class="btn btn-primary btn-block mb-4">Sign Up</button>
+            <button id="signup"  class="btn btn-primary btn-block mb-4">Sign Up</button><button class="btn btn-outline-light" onclick="show_script('codejs')" ><i class="bi-filetype-js"></i></button><button class="btn btn-outline-light" onclick="show_script('codehtml')" ><i class="bi-filetype-html"></i></button><br>
     </form>
 </div>
 </div>
@@ -43,7 +45,234 @@
 </div>
 </div>
 </section>
+<div id="codehtml" class="cont"  style="display:none">
+<div class="codecontainer">
+    <pre>
+      <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+      <h2>HTML:</h2>
+      <h5>
+      <\h2 class="fw-bold mb-5">Sign Up<\/h2>
+      <\form name="loggin" onsubmit="return false">
+              <\label for="username" class="form-label">Username:<\/label><\br>
+              <\input type="text" id="username" name="username" placeholder="Choose a username" class="form-control"><\br>
+              <\label for="email" class="form-label">Email:<\/label><\br>
+              <\input type="text" id="email" name="email" placeholder="enter your email" class="form-control"><\br>
+              <\label for="password" class="form-label">Password:<\br>       
+              <\input type="type" id="password" name="password" placeholder="Enter a strong Password" class="form-control"><\br>
+              <\label for="password2" class="form-label">Confirm Password:<\/label><\br>
+              <\input type="password" id="password2" name="password2" placeholder="Reenter your password" class="form-control"><\br>
+              <\button id="signup"  class="btn btn-primary btn-block mb-4">Sign Up<\/button><\button class="btn btn-outline-light" onclick="show_script('verification')" >script<\/button><\br>
+      <\/form></h5></div></pre></div></div>
+      <div id="codejs" class="cont"  style="display:none">
+        <div class="codecontainer">
+            <pre>
+              <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+      <h2>Javascript:</h2>
+      <h5>
+    document.getElementById("signup").addEventListener("click", verification);
+function verification(){
+    let username=document.forms["loggin"]["username"].value;
+    let email=document.forms["loggin"]["email"].value;
+    let password=document.forms["loggin"]["password"].value;
+    let password2=document.forms["loggin"]["password2"].value;
+    let email_pattern = /\w@\w.\w/;
+    let password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&\amp;*])/;
+    if(username.length<\3 || username.length>25){
+        alert("enter a valid username \n username should be between 3 and 25 characters");
+    }
+    else if(!email_pattern.test(email)){
+        alert("enter a valid email adress");
+    }
+    else if(password.length<\8 || !password_pattern.test(password)){
+        alert("enter a valid password \n password should be at least 8 characters long, should contain at least an uppercase character, an lowercase character, a digit and a special character ");
 
-<script src="js.js"></script>
+    }
+    else if(password!=password2){
+        alert("the two passwords need to match");
+    }     
+    else{
+        window.open("index.html",'_self');
+        }
+} </h5>
+    </pre></div>
+ 
+</div></div>
+
+<div id="usernamehtml" class="cont" style="display:none">
+  <div class="codecontainer">
+      <pre>
+        <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+        <h2>HTML:</h2>
+        <h5>
+          <\label for="username" class="form-label">Username:<\/label><\button class="btn btn-outline-light" onclick="show_script('username')" ><i class="bi-filetype-js"></i></button><br>
+          <\input type="text" id="username" name="username" placeholder="Choose a username" class="form-control"><\br></h5></div></pre></div></div>
+ <div id="usernamejs" class="cont"  style="display:none">
+            <div class="codecontainer">
+                <pre>
+                  <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+          <h2>Javascript:</h2>
+          <h5>
+          document.getElementById("signup").addEventListener("click", verification);
+        function verification(){
+              let username=document.forms["loggin"]["username"].value;
+              if(username.length<\3 || username.length>25){
+                          alert("enter a valid username \n username should be between 3 and 25 characters");
+                         }
+        </pre></div></div>
+
+       <div id="emailhtml" class="cont" style="display:none">
+          <div class="codecontainer">
+              <pre>
+                <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+                  <h2>HTML:</h2>
+                  <h5>
+                  <\label for="email" class="form-label">Email:<\/label><\br>
+                  <\input type="text" id="email" name="email" placeholder="enter your email" class="form-control"><\br></h5></div></pre></div></div>
+        
+                  <div id="emailjs"  style="display:none">
+                    <div class="codecontainer">
+                        <pre>
+                          <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+                            <h2>Javascript:</h2>
+                            <h5>
+                              
+                          function verification(){
+                              let email=document.forms["loggin"]["email"].value;
+                              {...}
+                              else if(!email_pattern.test(email)){
+                                  alert("enter a valid email adress");}
+                              ></h5></div></pre></div></div>
+  <div id="passwordhtml" class="cont" style="display:none">
+          <div class="codecontainer">
+              <pre>
+                <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+                  <h2>HTML:</h2>
+                  <h5>
+                    <\label for="password" class="form-label">Password:<\br>       
+                    <\input type="type" id="password" name="password" placeholder="Enter a strong Password" class="form-control"><\br></h5></div></pre></div></div>
+ <div id="passwordjs" class="cont" style="display:none">
+        <div class="codecontainer">
+               <pre>
+                  <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+                    <h2>Javascript:</h2>
+                        <h5>
+                          function verification(){
+                            let password=document.forms["loggin"]["password"].value;
+                            {...}
+                            let password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&\amp;*])/;
+                            {...}
+                            else if(password.length<\8 || !password_pattern.test(password)){
+                                alert("enter a valid password \n password should be at least 8 characters long, should contain at least an uppercase character, an lowercase character, a digit and a special character ");
+                        
+                            }
+                                ></h5></div></pre></div></div>         
+  <div id="password2html" class="cont" style="display:none">
+    <div class="codecontainer">
+              <pre>
+                 <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+                      <h2>HTML:</h2>
+                           <h5>
+                            <\label for="password2" class="form-label">Confirm Password:<\/label><\br>
+                            <\input type="password" id="password2" name="password2" placeholder="Reenter your password" class="form-control"><\br></h5></div></pre></div></div>
+
+  <div id="css" class="cont" style="display:none">
+           <div class="codecontainer">
+                  <pre>
+               <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+                       <h2>CSS</h2>
+                             <h5>.cascading-right {
+                              margin-right: -250px;
+                            }
+                          
+                            @media (max-width: 991.98px) {
+                              .cascading-right {
+                                margin-right: 0;
+                              }
+                            }
+                          
+                            section{
+                              height:60%;
+                              width:80%" 
+                            }
+                            #div4{
+                              background: hsla(159, 21%, 21%, 0.272);
+                              backdrop-filter: blur(50px);
+                            }
+                          
+                            .codecontainer{
+                              align-content: center;
+                              size:80%;
+                              margin-top:50px;
+                              background-color: rgba(255, 255, 255, 0.63);
+                              backdrop-filter:blur(30px);
+                              padding: 6rem 6rem;
+                              box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.566);
+                              border-radius: 7px;
+                          }
+                          
+                          #code,.cont {
+                            background-image: url('back.jfif');
+                            box-shadow:8px 8px 8px 9px rgba(0, 0, 0, 0.5) inset, 8px 8px 8px 9px rgba(0, 0, 0, 0.5); 
+                           
+                            background-repeat: no-repeat;
+                            background-size: cover;
+                           
+                          }
+                          </h5></div></pre></div></div>
+                  
+                              <div id="codehtml" class="cont"  style="display:none">
+                                <div class="codecontainer">
+                                    <pre>
+                                      <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+                                      <h2>HTML:</h2>
+                                      <h5>
+                                      <\h2 class="fw-bold mb-5">Sign Up<\/h2>
+                                      <\form name="loggin" onsubmit="return false">
+                                              <\label for="username" class="form-label">Username:<\/label><\br>
+                                              <\input type="text" id="username" name="username" placeholder="Choose a username" class="form-control"><\br>
+                                              <\label for="email" class="form-label">Email:<\/label><\br>
+                                              <\input type="text" id="email" name="email" placeholder="enter your email" class="form-control"><\br>
+                                              <\label for="password" class="form-label">Password:<\br>       
+                                              <\input type="type" id="password" name="password" placeholder="Enter a strong Password" class="form-control"><\br>
+                                              <\label for="password2" class="form-label">Confirm Password:<\/label><\br>
+                                              <\input type="password" id="password2" name="password2" placeholder="Reenter your password" class="form-control"><\br>
+                                              <\button id="signup"  class="btn btn-primary btn-block mb-4">Sign Up<\/button><\button class="btn btn-outline-light" onclick="show_script('verification')" >script<\/button><\br>
+                                      <\/form></h5></div></pre></div></div>
+                                      <div id="codejs" class="cont"  style="display:none">
+                                        <div class="codecontainer">
+                                            <pre>
+                                              <div style="background-color:rgba(255, 255, 255, 0.566); margin-top: 20px; border-radius: 8px;">
+                                      <h2>Javascript:</h2>
+                                      <h5>
+                                    document.getElementById("signup").addEventListener("click", verification);
+                                function verification(){
+                                    let username=document.forms["loggin"]["username"].value;
+                                    let email=document.forms["loggin"]["email"].value;
+                                    let password=document.forms["loggin"]["password"].value;
+                                    let password2=document.forms["loggin"]["password2"].value;
+                                    let email_pattern = /\w@\w.\w/;
+                                    let password_pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&\amp;*])/;
+                                    if(username.length<\3 || username.length>25){
+                                        alert("enter a valid username \n username should be between 3 and 25 characters");
+                                    }
+                                    else if(!email_pattern.test(email)){
+                                        alert("enter a valid email adress");
+                                    }
+                                    else if(password.length<\8 || !password_pattern.test(password)){
+                                        alert("enter a valid password \n password should be at least 8 characters long, should contain at least an uppercase character, an lowercase character, a digit and a special character ");
+                                
+                                    }
+                                    else if(password!=password2){
+                                        alert("the two passwords need to match");
+                                    }     
+                                    else{
+                                        window.open("index.html",'_self');
+                                        }
+                                } </h5>
+                                    </pre></div>
+                                 
+                                </div></div>
+ <script src="js.js"></script>
+<script src="prism.js"></script>
 </body>
 </html>

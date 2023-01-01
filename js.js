@@ -23,3 +23,16 @@ function verification(){
         window.open("index.html",'_self');
         }
 } 
+let cp_btn=0;
+function show_script(id){
+    if(cp_btn%2==0){
+    
+        document.getElementById(id).setAttribute("style", "display:block");
+        cp_btn++;
+    }
+    else{
+        document.getElementById(id).setAttribute("style", "display:none");
+        cp_btn++;
+    }
+
+  }
